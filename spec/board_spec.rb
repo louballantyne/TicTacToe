@@ -6,5 +6,15 @@ describe Board do
       subject.turn(1,1,1)
       expect(subject.fields.first).to be_a_kind_of Field
     end
+    it 'will not let a player have a turn if the row and column are not 0-3' do
+      expect(subject.turn(8,8,8)).to eq "Row or column lies outside of bounds"
+    end
+  end
+
+  describe 'a player has already claimed field 1,1' do
+    it 'will not allow another player to claim the same field' do
+      subject.turn(1,1,1)
+      expect(subject.turn(1,1,2)).to eq "field in use"
+    end
   end
 end
