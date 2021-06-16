@@ -8,6 +8,8 @@ class Board
   end
 
   def turn(row, column, player)
+    return "Row or column lies outside of bounds" unless row.between?(0,3) && column.between?(0,3)
+
     @fields.each do |field|
       return "field in use" if field.row == row && field.column == column
     end

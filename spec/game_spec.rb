@@ -16,4 +16,5 @@ describe Game do
       expect(subject.board.fields.last.player).to eq("O")
     end
   end
+
 end
