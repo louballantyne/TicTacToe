@@ -5,12 +5,12 @@ class Game
 
   def initialize
     @board = Board.new
-    @player
+    @player = "X"
   end
 
   def play(row,column)
-    turn
-    @board.turn(row,column,@player)
+    res = @board.turn(row,column,@player)
+    res == "Success"? turn : res
   end
 
   def turn
