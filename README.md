@@ -17,7 +17,9 @@ Build the business logic for a game of tic tac toe. It should be easy to impleme
 
 /Game class
 responsible for keeping track of whose move it is
-/Player class???
 /Board class
 responsible for keeping track of who has claimed each field
 /Field class
+
+// count fields, if all used game over
+// end game when player wins

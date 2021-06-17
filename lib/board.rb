@@ -12,7 +12,6 @@ class Board
 
   def turn(row, column, player)
     return "Row or column lies outside of bounds" unless row.between?(1,3) && column.between?(1,3)
-
     @fields.each do |field|
       return "field in use" if field.row == row && field.column == column
     end
@@ -29,7 +28,9 @@ class Board
   end
 
   def check(result)
-    if result.nil?
+    if result.nil? && @fields.length == 9
+      return "Board full - game over"
+    elsif result.nil?
       return "Success"
     elsif result.include?("Winner")
       return result
