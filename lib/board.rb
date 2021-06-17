@@ -16,7 +16,7 @@ class Board
     @fields.each do |field|
       return "field in use" if field.row == row && field.column == column
     end
-    "Success" if save(row, column, player).nil?
+    check(save(row, column, player))
   end
 
   def save(row, column, player)
@@ -26,5 +26,13 @@ class Board
 
   def score(row, column, player)
     player == 'X' ? @scoreX.calc(row, column) : @scoreO.calc(row, column)
+  end
+
+  def check(result)
+    if result.nil?
+      return "Success"
+    elsif result.include?("Winner")
+      return result
+    end
   end
 end
