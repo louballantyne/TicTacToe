@@ -21,5 +21,4 @@ responsible for keeping track of whose move it is
 responsible for keeping track of who has claimed each field
 /Field class
 
-// count fields, if all used game over
-// end game when player wins
+// stub out score in board spec

@@ -17,20 +17,20 @@ class Score
   end
 
   def check_middle_win
-    return "#{@player} is the Winner" if @fields.include?([2,1]) && @fields.include?([2,3])
-    return "#{@player} is the Winner" if @fields.include?([1,2]) && @fields.include?([3,2])
-    return "#{@player} is the Winner" if @fields.include?([1,1]) && @fields.include?([3,3])
-    return  "#{@player} is the Winner" if @fields.include?([3,1]) && @fields.include?([1,3])
+    return "#{@player} is the Winner - game over" if @fields.include?([2,1]) && @fields.include?([2,3])
+    return "#{@player} is the Winner - game over" if @fields.include?([1,2]) && @fields.include?([3,2])
+    return "#{@player} is the Winner - game over" if @fields.include?([1,1]) && @fields.include?([3,3])
+    return  "#{@player} is the Winner - game over" if @fields.include?([3,1]) && @fields.include?([1,3])
   end
 
   def check_first_win
-    return "#{@player} is the Winner" if @fields.include?([1,2]) && @fields.include?([1,3])
-    return "#{@player} is the Winner" if @fields.include?([2,1]) && @fields.include?([3,1])
+    return "#{@player} is the Winner - game over" if @fields.include?([1,2]) && @fields.include?([1,3])
+    return "#{@player} is the Winner - game over" if @fields.include?([2,1]) && @fields.include?([3,1])
   end
 
   def check_last_win
-    return "#{@player} is the Winner" if @fields.include?([3,1]) && @fields.include?([3,2])
-    return "#{@player} is the Winner" if @fields.include?([1,3]) && @fields.include?([2,3])
+    return "#{@player} is the Winner - game over" if @fields.include?([3,1]) && @fields.include?([3,2])
+    return "#{@player} is the Winner - game over" if @fields.include?([1,3]) && @fields.include?([2,3])
   end
 
 end

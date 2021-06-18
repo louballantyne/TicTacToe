@@ -1,6 +1,15 @@
 require 'board'
 
 describe Board do
+  before(:each) do
+    @scoreX = double('ScoreX', :player => 'X', :fields => [])
+    @scoreO = double('ScoreO', :player => 'O', :fields => [])
+    subject.instance_variable_set(:@scoreX, @scoreX)
+    subject.instance_variable_set(:@scoreO, @scoreO)
+    allow(@scoreX).to receive(:calc)
+    allow(@scoreO).to receive(:calc)
+  end
+
   describe 'the bounds of the board' do
     it 'allows a player to fill a slot if the row and column is 1-3' do
       subject.turn(1,1,'X')
