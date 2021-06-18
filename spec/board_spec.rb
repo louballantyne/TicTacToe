@@ -1,6 +1,7 @@
 require 'board'
 
 describe Board do
+  
   before(:each) do
     @scoreX = double('ScoreX', :player => 'X', :fields => [])
     @scoreO = double('ScoreO', :player => 'O', :fields => [])
@@ -38,6 +39,31 @@ describe Board do
       subject.turn(3,2,'X')
       subject.turn(3,3,'O')
       expect(subject.turn(3,1,'X')).to eq 'Board full - game over'
+    end
+  end
+
+  context "The correct Score instance is called depending on the player" do
+    it "ScoreX is called to calculate when the player is 'X'" do
+      expect(@scoreX).to receive(:calc)
+      subject.turn(1,1,'X')
+    end
+    it "ScoreO is called to calculate when the player is 'O'" do
+      expect(@scoreO).to receive(:calc)
+      subject.turn(1,1,'O')
+    end
+  end
+
+  context 'Score has successfully saved the score' do
+    it "Returns 'Success' if the result is nil" do
+      allow(@scoreX).to receive(:calc) { nil }
+      expect(subject.turn(1,1,'X')).to eq 'Success'
+    end
+  end
+
+  context 'Somebody has won the game' do
+    it 'returns the message containing the winner' do
+      allow(@scoreX).to receive(:calc) { "Player X is the Winner - game over" }
+      expect(subject.turn(1,1,'X')).to eq 'Player X is the Winner - game over'
     end
   end
 end

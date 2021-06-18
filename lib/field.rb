@@ -6,7 +6,6 @@ class Field
     @row = row
     @column = column
     @player = player
-
   end
 
 end

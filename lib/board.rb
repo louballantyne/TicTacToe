@@ -4,6 +4,7 @@ require_relative 'score'
 class Board
 
   attr_reader :fields
+
   def initialize
     @fields = []
     @scoreX = Score.new("X")
@@ -36,4 +37,5 @@ class Board
       return result
     end
   end
+  
 end
